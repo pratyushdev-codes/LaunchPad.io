@@ -73,10 +73,10 @@ function Home() {
 
   //Sending Step Count for Health Status APIS
 
-  const sendStep =()=>{
+  const sendStep = () => {
     fetch("http://127.0.0.1:3000/sendStep", {
       method: "POST",
-      body:{steps} ,
+      body: { steps },
       credentials: "include", // Include this line if you need to send cookies with the request
     })
       .then((response) => response.json())
@@ -93,10 +93,10 @@ function Home() {
 
 
   //Sending HeartBeat for Health Status
-  const sendHeartBeats =()=>{
+  const sendHeartBeats = () => {
     fetch("http://127.0.0.1:5000/sendHeartBeats", {
       method: "POST",
-      body:{heartRate} ,
+      body: { heartRate },
       credentials: "include", // Include this line if you need to send cookies with the request
     })
       .then((response) => response.json())
@@ -112,23 +112,37 @@ function Home() {
   };
 
   return (
-    <main className='main-container' style={{ backgroundImage: "url('/images/grad1.png')", backgroundSize: "cover" }}>
+    <main className='main-container' style={{ backgroundImage: "url('/images/grad1.png')", backgroundSize: "cover", backgroundColor: "white" }}>
       <div className='main-title'>
-        <h3><i className="fa-solid fa-list" style={{ color: "#2862FF" }}></i> &nbsp;Dashboard </h3>
- 
-    
+        <h3 style={{color:"black"}}><i className="fa-solid fa-list" style={{ color: "#2862FF" }}></i> &nbsp;Dashboard </h3>
+
+
       </div>
-      <h7 style={{color:"darkgrey"}}>Real Time data from BitHeat Wearable device.</h7>
+      <h7 style={{ color: "darkgrey" }}>Track your coding progress.</h7>
       <div className='main-cards'>
-        <div className='card' style={{ borderRadius: '10px' }}>
-          <div className='card-inner'>
-            <h5 style={{ color: 'white' }}> <img src="./images/leetcode.png" style={{width:"18px", height:"20px"}}/>&nbsp;Leetcode </h5>
+        <div className='card bg-gray-500 bg-opacity-25' style={{
+          background: 'rgba(255, 255, 255, 0.55)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
+          borderRadius: '10px',
+          border: '1px solid rgba(255, 255, 255, 0.18)'
+        }}>
+          <div className='card-inner' >
+            <h5 style={{ color: 'grey' }}> <img src="./images/leetcode.png" style={{ width: "18px", height: "20px" }} />&nbsp;Leetcode </h5>
           </div>
           <h1 id='beatsPerMinuteElement'>{heartRate}</h1>
-          <h7>Beats per minute</h7>
+          <h7>Total Active Days:</h7>
         </div>
-        <div className='card' style={{ borderRadius: '10px' }}>
-          <div className='card-inner'>
+        <div className='card' style={{
+          background: 'rgba(255, 255, 255, 0.55)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
+          borderRadius: '10px',
+          border: '1px solid rgba(255, 255, 255, 0.18)'
+        }}>
+          <div className='card-inner'  >
             <h5 style={{ color: 'white' }}> <i className="fa-solid fa-chart-simple"></i> &nbsp;Blood Pressure</h5>
           </div>
           <h1 id='bp'>{bloodPressure}</h1>
@@ -151,7 +165,7 @@ function Home() {
       </div>
       <br />
       <h3> <i className="fa-solid fa-chart-line" style={{ color: "#2862FF" }}></i> &nbsp;Your Health Data Chart </h3>
-      <h7 style={{color:"darkgrey"}}>Real Time Health data plotted in a graph for deep analysis.</h7>
+      <h7 style={{ color: "darkgrey" }}>Real Time Health data plotted in a graph for deep analysis.</h7>
       <div className='charts'>
         <ResponsiveContainer width='100%' height={300}>
           <BarChart
@@ -196,13 +210,13 @@ function Home() {
 
         <div className='healthStatus my-2'>
           <h3><i className="fa-solid fa-hand-holding-droplet" style={{ color: "#2862FF" }}></i>&nbsp; Check your Health Status</h3>
-          <h7 style={{color:"darkgrey"}}>Analayse your Health Status in with respect to your real time data.</h7>
+          <h7 style={{ color: "darkgrey" }}>Analayse your Health Status in with respect to your real time data.</h7>
           <a href='http://127.0.0.1:3000/'>      <button type="button" className="btn my-3 mx-6" style={{ backgroundColor: "#2862FF", borderRadius: "20px", color: "white" }}>Check Health</button></a>
-    
+
         </div>
         <div className='heartStatus'>
           <h3><i className="fa-solid fa-hand-holding-heart" style={{ color: "#2862FF" }}></i> &nbsp; Check your Heart Status</h3>
-          <h7 style={{color:"darkgrey"}}>Predict your Heart Conditions with our trained AI ML Models.</h7>
+          <h7 style={{ color: "darkgrey" }}>Predict your Heart Conditions with our trained AI ML Models.</h7>
           <a href='http://127.0.0.1:5000/'>          <button type="button" className="btn my-3 mx-6" style={{ backgroundColor: "#2862FF", borderRadius: "20px", color: "white" }}>Check Heart Conditions</button></a>
 
         </div>

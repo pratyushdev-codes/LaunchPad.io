@@ -7,7 +7,13 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive" : ""  } style={{textDecoration:"non"}}>
       <div className='sidebar-title'>
         <div className='sidebar-brand'>
-            <h2 style={{color:"white", fontWeight:"bolder"}}> LaunchPad.io</h2>
+        <h2 style={{
+  fontWeight: "bolder",
+  background: 'linear-gradient(-100deg, #036EFD, #EC7A6F, #EC7A6F)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent'
+}}>LaunchPad.io</h2>
+
         </div>
         <span className='icon close_icon' onClick={OpenSidebar}>X</span>
       </div>

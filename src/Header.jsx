@@ -5,15 +5,14 @@ import
 
 function Header({OpenSidebar}) {
   return (
-    <header className='header'>
+    <header className='header ' style={{backgroundColor:"white",  justifyContent:"flex-end"}}>
         <div className='menu-icon'>
             <BsJustify className='icon' onClick={OpenSidebar}/>
         </div>
        
-        <div className='header-right'>
-            <BsFillBellFill className='icon'/> &nbsp; &nbsp;
-            <BsFillEnvelopeFill className='icon'/> &nbsp; &nbsp;
-            <BsPersonCircle className='icon'/> &nbsp; &nbsp;
+        <div className='header-left' style={{display:"flex"}} >
+        <button type="button" class="btn btn-primary mx-2" style={{borderRadius:"20px", }}>Generate Dev Card</button>
+            <img src='./images/download.png' className='my-1' style={{borderRadius:"50%", width:"30px", height:"30px"}}/>
         </div>
     </header>
   )
