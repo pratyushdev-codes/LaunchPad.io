@@ -22,7 +22,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       <Link to="/">
         <li className='sidebar-list-item'>
           <a href="">
-            <BsGrid1X2Fill className='icon' /> Dashboard
+            <BsGrid1X2Fill className='icon' /> Dashboard 
           </a>
         </li>
         </Link>
@@ -30,7 +30,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
        <Link to ="/appointment">        <li className='sidebar-list-item'>
           <a href="">
-            <i className="fa-solid fa-suitcase-medical"></i> &nbsp;Book Appointments
+            <i className="fa-solid fa-suitcase-medical" style={{color:"white"}}></i> &nbsp;Analyze Resume
           </a>
         </li></Link>
 

@@ -119,7 +119,7 @@ function Home() {
 
       </div>
       <h7 style={{ color: "darkgrey" }}>Track your coding progress.</h7>
-      <div className='main-cards'>
+      <div className='main-cards' >
         <div className='card bg-gray-500 bg-opacity-25' style={{
           background: 'rgba(255, 255, 255, 0.55)',
           boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
@@ -128,14 +128,14 @@ function Home() {
           borderRadius: '10px',
           border: '1px solid rgba(255, 255, 255, 0.18)'
         }}>
-          <div className='card-inner' >
+          <div className='card-inner'  >
             <h5 style={{ color: 'grey' }}> <img src="./images/leetcode.png" style={{ width: "18px", height: "20px" }} />&nbsp;Leetcode </h5>
           </div>
           <h1 id='beatsPerMinuteElement'>{heartRate}</h1>
           <h7>Total Active Days:</h7>
         </div>
         <div className='card' style={{
-          background: 'rgba(255, 255, 255, 0.55)',
+          background: 'rgb(153 160 233 / 55%)',
           boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
           backdropFilter: 'blur(0px)',
           WebkitBackdropFilter: 'blur(0px)',
@@ -143,21 +143,22 @@ function Home() {
           border: '1px solid rgba(255, 255, 255, 0.18)'
         }}>
           <div className='card-inner'  >
-            <h5 style={{ color: 'white' }}> <i className="fa-solid fa-chart-simple"></i> &nbsp;Blood Pressure</h5>
+            <h5 style={{ color: 'grey' }}> <img src='./images/geeks.png' style={{width:"31px", height:"21px"}}/> &nbsp;Geeks for Geeks</h5>
           </div>
           <h1 id='bp'>{bloodPressure}</h1>
           <h5>mm Hg</h5>
         </div>
-        <div className='card' style={{ borderRadius: '10px', backgroundColor: "#8885D8" }}>
+      
+        <div className='card' style={{
+          background: 'rgb(253, 223, 142)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          backdropFilter: 'blur(0px)',
+          WebkitBackdropFilter: 'blur(0px)',
+          borderRadius: '10px',
+          border: '1px solid rgba(255, 255, 255, 0.18)'
+        }}>
           <div className='card-inner'>
-            <h5 style={{ color: 'white' }}> <i className="fa-solid fa-shoe-prints"></i> &nbsp; Steps</h5>
-          </div>
-          <h1 id='stepsData'>{steps}</h1>
-          <h7>Number of Steps</h7>
-        </div>
-        <div className='card' style={{ borderRadius: '10px', backgroundColor: "#FDDF8E" }}>
-          <div className='card-inner'>
-            <h5 style={{ color: 'white' }}> <i className="fa-solid fa-notes-medical"></i> &nbsp;Calories</h5>
+            <h5 style={{ color: 'white' }}><img src='./images/codeforces.png' style={{width:"25px", height:"25px"}}/> &nbsp;Codeforces</h5>
           </div>
           <h1>{calories.toFixed(2)}</h1>
           <h7>kilo joules</h7>
