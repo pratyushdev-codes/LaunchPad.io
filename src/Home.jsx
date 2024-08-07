@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import io from 'socket.io-client';
+import { PieChart } from '@mui/x-charts/PieChart';
+import { CircularProgress } from '@mui/material';
 
 function Home() {
-  const [heartRate, setHeartRate] = useState(0);
-  const [bloodPressure, setBloodPressure] = useState(0);
+
+
   const [steps, setSteps] = useState(0);
   const [calories, setCalories] = useState(0);
   const [chartData, setChartData] = useState([]);
@@ -24,12 +26,7 @@ function Home() {
       return Math.floor(Math.random() * (100 - 60 + 1)) + 60;
     }
 
-    const updateBeatsPerMinute = () => {
-      var beatsPerMinuteElement = document.getElementById("beatsPerMinuteElement");
-      beatsPerMinuteElement.textContent = generateRandomValue();
-    }
 
-    updateBeatsPerMinute();
 
     const heartRateInterval = setInterval(() => {
       updateBeatsPerMinute();
@@ -44,13 +41,11 @@ function Home() {
       bpElement.textContent = generateRandomValue1();
     }
 
-    const bloodPressureInterval = setInterval(() => {
-      updateBP();
-    }, 2000);
+
 
     const updateChartData = () => {
       setChartData((prevData) => {
-        const newData = [...prevData, { name: new Date().toLocaleTimeString(), heartRate: generateRandomValue(), bloodPressure: generateRandomValue1(), calories }];
+        const newData = [...prevData, { name: new Date().toLocaleTimeString(), heartRate: generateRandomValue(), calories }];
         return newData.slice(-7); // Keep only the most recent 7 data points
       });
     };
@@ -62,7 +57,7 @@ function Home() {
 
     return () => {
       clearInterval(heartRateInterval);
-      clearInterval(bloodPressureInterval);
+
       clearInterval(chartDataInterval);
       socket.disconnect();
     };
@@ -120,7 +115,7 @@ function Home() {
       </div>
       <h7 style={{ color: "darkgrey" }}>Track your coding progress.</h7>
       <div className='main-cards' >
-        <div className='card bg-gray-500 bg-opacity-25' style={{
+        <div className='card bg-gray-500 bg-opacity-25 ' style={{
           background: 'rgba(255, 255, 255, 0.55)',
           boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
           backdropFilter: 'blur(0px)',
@@ -128,10 +123,28 @@ function Home() {
           borderRadius: '10px',
           border: '1px solid rgba(255, 255, 255, 0.18)'
         }}>
-          <div className='card-inner'  >
+          <div className='card-inner ' >
             <h5 style={{ color: 'grey' }}> <img src="./images/leetcode.png" style={{ width: "18px", height: "20px" }} />&nbsp;Leetcode </h5>
           </div>
-          <h1 id='beatsPerMinuteElement'>{heartRate}</h1>
+          {/* <h1 id='beatsPerMinuteElement'></h1> */}
+         <PieChart
+  series={[
+    {
+      data: [
+        { value: 4000, label: 'Hard' },
+        { value: 300, label: 'Medium' },
+        { value: 300, label: 'Easy' },
+      ],
+      innerRadius: 30,
+      outerRadius: 100,
+      paddingAngle: 5,
+      cornerRadius: 5,
+  
+
+    }
+  ]}
+/>
+        
           <h7>Total Active Days:</h7>
         </div>
         <div className='card' style={{
@@ -145,7 +158,13 @@ function Home() {
           <div className='card-inner'  >
             <h5 style={{ color: 'grey' }}> <img src='./images/geeks.png' style={{width:"31px", height:"21px"}}/> &nbsp;Geeks for Geeks</h5>
           </div>
-          <h1 id='bp'>{bloodPressure}</h1>
+          {/* <h1 id='bp'>{bloodPressure}</h1> */}
+          <h1 id='bp'>efe</h1>
+
+
+          <CircularProgress variant="determinate" value={50} >
+  2 / 3
+</CircularProgress>
           <h5>mm Hg</h5>
         </div>
       

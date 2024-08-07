@@ -141,10 +141,12 @@ body {
   justify-content: space-around;
   padding: 8px 15px;
   border-radius: 5px;
+  height: 300px;
 }
 
 .card:first-child {
   background-color: #2962ff;
+  height: ;
 }
 
 .card:nth-child(2) {
